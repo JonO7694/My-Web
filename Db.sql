@@ -1,3 +1,5 @@
+insert into UserLogin (LastName, FirstName, Password) values ('Jones', 'Michael', 'pass!23');
+
 ####### Create UserLogin database #########
 MySql
 CREATE TABLE UserLogin (
