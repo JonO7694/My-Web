@@ -10,13 +10,25 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $name = $_POST["user"];
+$pwd = $_POST["pwd"];
 echo $name;
+/*
 $sql = "INSERT INTO UserLogin (LastName, Password )
 VALUES ('$name', 'test123')";
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+*/
+$sql = "select * from UserLogin where LastName= '$name' and Password= '$pwd' ";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    echo "Welcome";
+} else {
+    echo "access denied";
+}
+/*if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully"; 
+    echo "
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+*/
 $conn->close();
 ?>
